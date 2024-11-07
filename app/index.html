@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webstream Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    /* Barra de navegação superior */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #6200ea;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .navbar h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-right: auto;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar .nav-links a:hover {
+      color: #bb86fc;
+    }
+
+    /* Barra lateral */
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 220px;
+      height: calc(100% - 60px);
+      background-color: #ffffff;
+      padding-top: 20px;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: #6200ea;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Conteúdo principal */
+    .main-content {
+      margin-top: 60px;
+      margin-left: 220px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #6200ea;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #bb86fc;
+    }
+
+    /* Estilo dos cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .grid > article {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .grid > article:hover {
+      transform: scale(1.02);
+    }
+
+    .grid .text {
+      padding: 20px;
+      font-size: 16px;
+    }
+
+    .text h3 {
+      font-size: 18px;
+      color: #6200ea;
+    }
+
+    .text p {
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .text a {
+      color: #6200ea;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegação superior -->
+  <div class="navbar">
+    <h1>Webstream Dashboard</h1>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- Barra lateral -->
+  <div class="sidebar">
+    <a href="#">Dashboard</a>
+    <a href="#">Reports</a>
+    <a href="#">Settings</a>
+    <a href="#">Help</a>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+    <div class="buttons">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+    <div class="container">
+      <main id="cards" class="grid"></main>
+    </div>
+  </div>
+
+  <script src="./index.js" type="module"></script>
+</body>
+</html>
