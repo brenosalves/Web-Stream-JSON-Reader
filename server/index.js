@@ -37,7 +37,8 @@ Readable.toWeb(createReadStream('./animeflv.csv'))
             title: data.title,
             description: data.description,
             url_anime: data.url_anime,
-            rate_start: data.rate_start    
+            rate_start: data.rate_start,
+            image: data.image
         }
         // Quebra de linha pois é um NDJSON
         controller.enqueue(JSON.stringify(mappedData).concat('\n'))
@@ -46,7 +47,7 @@ Readable.toWeb(createReadStream('./animeflv.csv'))
 // pipeTo() é a última etapa
 .pipeTo(new WritableStream({
     async write(chunk) {
-        await setTimeout(1000)
+        await setTimeout(500)
         items ++
         response.write(chunk)
     },
