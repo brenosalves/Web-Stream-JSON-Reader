@@ -24,7 +24,7 @@ function appendToHTML(element) {
       <article>
         <div class="text">
           <img src="${image}" alt="${title}" style="width:100%; height:auto; border-radius:8px;">
-          <h3>[${++counter}] ${title}</h3>
+          <h3>${title}</h3>
           <p>${description.slice(0, 100)}</p>
           <a href="${url_anime}">Here's why</a>
           <div class="stars">${renderStars(rate_start)}</div>
